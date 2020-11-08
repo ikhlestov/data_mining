@@ -1,6 +1,7 @@
 addpath('octave_functions')
 addpath('/Users/illarion.khliestov/Projects/data_mining/lr_1/octave_functions')
-data_t = csvread('tourism2_revision2.csv');
+data_t = csvread('/Users/illarion.khliestov/Projects/data_mining/lr_1/tourism2_revision2.csv');
+data = csvread('/Users/illarion.khliestov/Projects/data_mining/lr_1/s_and_p_500_hist.csv');
 % first 366 columns contain monthly time series
 % next 427 time series contain quarterly time series
 size(data_t);  % 310, 794 - n_month, n_objects?
@@ -16,3 +17,8 @@ linear_pred(data_t)
 plot_linear_pred(data_t)
 % setup regularizetion terms, step 5, define `reg_setup`
 reg_setup(data_t)
+
+
+%% for one location experiments
+location_data = data_t(:, 1);
+naive_one_location(location_data)  % 0.85352
